@@ -3,23 +3,38 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Team 3 Pitch</title>
-<meta name="description" content="Team 3's pitch to The Martec Group: post-project client follow-up.">
+<title>Insightify</title>
+<meta name="description" content="Insightify runs post-project client follow-up for research firms. $10,000 per project.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f7f6f2;--fg:#1c1c1a;--muted:#5d5c57;--line:#dddbd3;--accent:#1f5f8b;--card:#fff}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141413;--fg:#ecebe6;--muted:#a3a29b;--line:#2e2d2a;--accent:#6fb1df;--card:#1d1c1b}}
-:root[data-theme="dark"]{--bg:#141413;--fg:#ecebe6;--muted:#a3a29b;--line:#2e2d2a;--accent:#6fb1df;--card:#1d1c1b}
+:root{--bg:#f7f6f2;--fg:#1c1c1a;--muted:#5d5c57;--line:#dddbd3;--accent:#1f5f8b;--accent-fg:#fff;--card:#fff;--hero:#10324a;--hero-fg:#f2f6f9;--hero-muted:#b7c9d6}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141413;--fg:#ecebe6;--muted:#a3a29b;--line:#2e2d2a;--accent:#6fb1df;--accent-fg:#0d2233;--card:#1d1c1b;--hero:#0d2233}}
+:root[data-theme="dark"]{--bg:#141413;--fg:#ecebe6;--muted:#a3a29b;--line:#2e2d2a;--accent:#6fb1df;--accent-fg:#0d2233;--card:#1d1c1b;--hero:#0d2233}
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 Inter,system-ui,sans-serif}
 nav{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
-nav .in{max-width:960px;margin:auto;padding:12px 16px;display:flex;gap:18px;overflow-x:auto;white-space:nowrap}
-nav a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600}
-nav a:hover{color:var(--accent)}
+nav .in{max-width:960px;margin:auto;padding:12px 16px;display:flex;align-items:center;gap:18px}
+.logo{font-weight:800;font-size:18px;color:var(--fg);text-decoration:none;margin-right:auto}
+.logo span{color:var(--accent)}
+.links{display:flex;gap:18px;overflow-x:auto;white-space:nowrap}
+nav .links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600}
+nav .links a:hover{color:var(--accent)}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-fg);font-weight:800;text-decoration:none;padding:14px 26px;border-radius:10px}
+.btn:hover{filter:brightness(1.1)}
+.btn.sm{padding:8px 14px;font-size:14px;white-space:nowrap}
+.hero{background:var(--hero);color:var(--hero-fg)}
+.hero .in{max-width:960px;margin:auto;padding:88px 16px}
+.hero h1{font-size:clamp(32px,6vw,56px);line-height:1.1;margin:.2em 0 .5em;font-weight:800}
+.hero p{color:var(--hero-muted);font-size:19px;max-width:620px}
+.hero .price{font-size:22px;color:var(--hero-fg);font-weight:600;margin:24px 0}
+.hero .price b{font-size:34px}
+.hero .btn{background:#6fb1df;color:#0d2233}
 section{max-width:960px;margin:auto;padding:72px 16px;border-bottom:1px solid var(--line)}
 .tag{color:var(--accent);font-weight:800;font-size:13px;letter-spacing:.12em}
-h1{font-size:clamp(28px,5vw,46px);line-height:1.15;margin:.3em 0 .8em;font-weight:800}
+.hero .tag{color:#6fb1df}
+h2{font-size:clamp(26px,4.5vw,40px);line-height:1.15;margin:.3em 0 .8em;font-weight:800}
 h3{margin:0 0 .3em;font-size:18px}
 p{margin:0 0 1em;color:var(--muted)}
 .grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
@@ -32,17 +47,32 @@ blockquote cite{display:block;margin-top:8px;font-style:normal;color:var(--muted
 .src{font-size:13px}
 ul{margin:0;padding-left:20px;color:var(--muted)}
 li{margin-bottom:8px}
+.plan{border:2px solid var(--accent);max-width:520px}
+.plan .amt{font-size:52px;font-weight:800;line-height:1;color:var(--fg)}
+.plan .amt small{font-size:18px;color:var(--muted);font-weight:600}
+.plan ul{margin:20px 0 24px}
+.note{font-size:14px;margin-top:14px}
 footer{max-width:960px;margin:auto;padding:32px 16px;color:var(--muted);font-size:14px}
 </style>
 </head>
 <body>
 <nav><div class="in">
-<a href="#problem">Problem</a><a href="#solution">Solution</a><a href="#why">Why us</a><a href="#proof">Proof</a><a href="#next">Next</a>
+<a class="logo" href="#top">Insight<span>ify</span></a>
+<div class="links"><a href="#problem">Problem</a><a href="#solution">How it works</a><a href="#proof">Proof</a><a href="#pricing">Pricing</a></div>
+<a class="btn sm" href="#pricing">Book</a>
 </div></nav>
+
+<header class="hero" id="top"><div class="in">
+<div class="tag">INSIGHTIFY</div>
+<h1>Your research ends. Your client relationship shouldn’t.</h1>
+<p>Insightify runs post-project follow-up for research firms, under your name. We check in with each client, learn what they did with your findings, and bring you a brief on the next likely project.</p>
+<div class="price"><b>$10,000</b> per project</div>
+<a class="btn" href="mailto:raghavjs@umich.edu?subject=Book%20the%20Insightify%20pilot&body=Hi%20Insightify%20team%2C%0A%0AWe%27d%20like%20to%20book%20the%20pilot%20for%20these%20projects%3A%0A%0A">Book the pilot</a>
+</div></header>
 
 <section id="problem">
 <div class="tag">PROBLEM</div>
-<h1>Martec delivers great research — then the client goes quiet</h1>
+<h2>Martec delivers great research — then the client goes quiet</h2>
 <div class="grid">
 <div class="card"><h3>The Martec Group</h3><p>40 years of market research, built on repeat clients and private equity firms that come back.</p></div>
 <div class="card"><h3>The gap: post-delivery follow-up</h3><p>Once a project is handed over, there is no consistent check-in. That puts Martec’s most profitable work, the repeat engagement, at risk.</p></div>
@@ -51,51 +81,58 @@ footer{max-width:960px;margin:auto;padding:32px 16px;color:var(--muted);font-siz
 </section>
 
 <section id="solution">
-<div class="tag">SOLUTION</div>
-<h1>We run Martec’s post-project follow-up, under Martec’s name</h1>
+<div class="tag">HOW IT WORKS</div>
+<h2>We run your post-project follow-up, under your name</h2>
 <div class="grid">
-<div class="card"><div class="step">01</div><h3>Check in</h3><p>After each delivery, we reach out to the client on Martec’s behalf.</p></div>
+<div class="card"><div class="step">01</div><h3>Check in</h3><p>After each delivery, we reach out to the client on your behalf.</p></div>
 <div class="card"><div class="step">02</div><h3>Learn</h3><p>How were the findings used? What decisions did they drive? What comes next?</p></div>
-<div class="card"><div class="step">03</div><h3>Report back</h3><p>Martec gets a short brief on each client and the next likely project.</p></div>
+<div class="card"><div class="step">03</div><h3>Report back</h3><p>You get a short brief on each client and the next likely project.</p></div>
 </div>
-<p style="margin-top:24px">The result: Martec’s team stays focused on research, and no client is left waiting for Martec to reach out.</p>
+<p style="margin-top:24px">The result: your team stays focused on research, and no client is left waiting for you to reach out.</p>
 </section>
 
 <section id="why">
-<div class="tag">WHY US?</div>
-<h1>We already know where Martec loses touch, and we can start now</h1>
+<div class="tag">WHY INSIGHTIFY?</div>
+<h2>We already know where the relationship drops off, and we can start now</h2>
 <div class="grid">
 <div class="card"><h3>We heard it from the source</h3><p>We interviewed Bill Lucken directly and know where the relationship drops off after delivery.</p></div>
 <div class="card"><h3>We’ve done outreach before</h3><p>Our team has hands-on experience reaching out to contacts and turning conversations into next steps.</p></div>
-<div class="card"><h3>Follow-up is our only job</h3><p>Martec’s researchers are busy delivering the next project. We give follow-up the consistent attention it never gets.</p></div>
+<div class="card"><h3>Follow-up is our only job</h3><p>Your researchers are busy delivering the next project. We give follow-up the consistent attention it never gets.</p></div>
 </div>
 </section>
 
 <section id="proof">
 <div class="tag">PROOF</div>
-<h1>The customer named the problem, and the numbers say it pays</h1>
+<h2>The customer named the problem, and the numbers say it pays</h2>
 <div class="grid">
-<div class="card"><p>Bill Lucken, a partner at Martec, told us the firm is “not great at” post-delivery follow-up and wishes they did more of it.</p><p class="src">Customer interview, Team 3</p></div>
+<div class="card"><p>Bill Lucken, a partner at Martec, told us the firm is “not great at” post-delivery follow-up and wishes they did more of it.</p><p class="src">Customer interview, Insightify</p></div>
 <div class="card"><div class="num">25–95%</div><p>more profit from a 5% increase in customer retention</p><p class="src">Source: Bain &amp; Company (Reichheld)</p></div>
 <div class="card"><div class="num">5–25×</div><p>more expensive to win a new customer than to keep an existing one</p><p class="src">Source: Harvard Business Review, 2014</p></div>
 </div>
 </section>
 
-<section id="next">
-<div class="tag">WHAT’S NEXT?</div>
-<h1>Let us pilot it on 2–3 recent Martec projects</h1>
-<div class="grid">
-<div class="card"><h3>What we’ll do</h3><ul>
-<li>Run post-delivery check-ins for 2–3 recently completed projects, under Martec’s name</li>
-<li>Learn how each client used the findings and what they may need next</li>
-<li>Hand Martec a summary report for each client</li></ul></div>
-<div class="card"><h3>What we need from Martec</h3><ul>
+<section id="pricing">
+<div class="tag">PRICING</div>
+<h2>Start with a pilot on 2–3 recent projects</h2>
+<div class="card plan">
+<h3>Post-Project Follow-Up</h3>
+<div class="amt">$10,000 <small>/ project</small></div>
+<ul>
+<li>Post-delivery check-ins with the client, under your name</li>
+<li>How the findings were used and what they may need next</li>
+<li>A summary report for each client, with the next likely project</li>
+</ul>
+<a class="btn" href="mailto:raghavjs@umich.edu?subject=Book%20the%20Insightify%20pilot&body=Hi%20Insightify%20team%2C%0A%0AWe%27d%20like%20to%20book%20the%20pilot%20for%20these%20projects%3A%0A%0A">Book the pilot</a>
+<p class="note">Pilot of 2–3 projects: $20,000–$30,000.</p>
+</div>
+<div class="grid" style="margin-top:28px">
+<div class="card"><h3>What we need from you</h3><ul>
 <li>Your view on what a check-in and summary report look like</li>
 <li>Introductions or contact details for those clients</li>
 <li>The go-ahead to reach out</li></ul></div>
 </div>
 </section>
 
-<footer>A pitch by Team 3 to The Martec Group. Not an official Martec site.</footer>
+<footer>© 2026 Insightify · <a href="mailto:raghavjs@umich.edu" style="color:inherit">raghavjs@umich.edu</a></footer>
 </body>
 </html>
