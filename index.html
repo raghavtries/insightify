@@ -6,132 +6,171 @@
 <title>Insightify</title>
 <meta name="description" content="Insightify runs post-project client follow-up for research firms. $10,000 per project.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f7f6f2;--fg:#1c1c1a;--muted:#5d5c57;--line:#dddbd3;--accent:#1f5f8b;--accent-fg:#fff;--card:#fff;--hero:#10324a;--hero-fg:#f2f6f9;--hero-muted:#b7c9d6}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141413;--fg:#ecebe6;--muted:#a3a29b;--line:#2e2d2a;--accent:#6fb1df;--accent-fg:#0d2233;--card:#1d1c1b;--hero:#0d2233}}
-:root[data-theme="dark"]{--bg:#141413;--fg:#ecebe6;--muted:#a3a29b;--line:#2e2d2a;--accent:#6fb1df;--accent-fg:#0d2233;--card:#1d1c1b;--hero:#0d2233}
+:root{--bg:#07080d;--fg:#eef0f6;--muted:#9aa1b4;--line:rgba(255,255,255,.09);--glass:rgba(255,255,255,.04);--a1:#7c5cff;--a2:#22d3ee;--a3:#f472b6}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 Inter,system-ui,sans-serif}
-nav{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
-nav .in{max-width:960px;margin:auto;padding:12px 16px;display:flex;align-items:center;gap:18px}
-.logo{font-weight:800;font-size:18px;color:var(--fg);text-decoration:none;margin-right:auto}
-.logo span{color:var(--accent)}
-.links{display:flex;gap:18px;overflow-x:auto;white-space:nowrap}
-nav .links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600}
-nav .links a:hover{color:var(--accent)}
-.btn{display:inline-block;background:var(--accent);color:var(--accent-fg);font-weight:800;text-decoration:none;padding:14px 26px;border-radius:10px}
-.btn:hover{filter:brightness(1.1)}
-.btn.sm{padding:8px 14px;font-size:14px;white-space:nowrap}
-.hero{background:var(--hero);color:var(--hero-fg)}
-.hero .in{max-width:960px;margin:auto;padding:88px 16px}
-.hero h1{font-size:clamp(32px,6vw,56px);line-height:1.1;margin:.2em 0 .5em;font-weight:800}
-.hero p{color:var(--hero-muted);font-size:19px;max-width:620px}
-.hero .price{font-size:22px;color:var(--hero-fg);font-weight:600;margin:24px 0}
-.hero .price b{font-size:34px}
-.hero .btn{background:#6fb1df;color:#0d2233}
-section{max-width:960px;margin:auto;padding:72px 16px;border-bottom:1px solid var(--line)}
-.tag{color:var(--accent);font-weight:800;font-size:13px;letter-spacing:.12em}
-.hero .tag{color:#6fb1df}
-h2{font-size:clamp(26px,4.5vw,40px);line-height:1.15;margin:.3em 0 .8em;font-weight:800}
-h3{margin:0 0 .3em;font-size:18px}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 Inter,system-ui,sans-serif;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-2;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse at 50% 0%,#000 20%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at 50% 0%,#000 20%,transparent 75%)}
+.blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.55;z-index:-1;pointer-events:none}
+.b1{width:520px;height:520px;background:var(--a1);top:-160px;left:-120px;animation:float 14s ease-in-out infinite}
+.b2{width:440px;height:440px;background:var(--a2);top:40px;right:-140px;opacity:.35;animation:float 18s ease-in-out infinite reverse}
+.b3{width:380px;height:380px;background:var(--a3);top:420px;left:35%;opacity:.25;animation:float 16s ease-in-out infinite}
+@keyframes float{50%{transform:translate(40px,30px) scale(1.08)}}
+@media (prefers-reduced-motion:reduce){.blob{animation:none}}
+nav{position:sticky;top:0;z-index:10;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(7,8,13,.6);border-bottom:1px solid var(--line)}
+nav .in{max-width:1080px;margin:auto;padding:14px 16px;display:flex;align-items:center;gap:22px}
+.logo{font:700 20px "Space Grotesk",sans-serif;color:var(--fg);text-decoration:none;margin-right:auto;display:flex;align-items:center;gap:8px}
+.logo i{width:22px;height:22px;border-radius:7px;background:linear-gradient(135deg,var(--a1),var(--a2));display:inline-block}
+.links{display:flex;gap:22px}
+.links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500}
+.links a:hover{color:var(--fg)}
+@media (max-width:640px){.links{display:none}}
+.btn{display:inline-block;background:linear-gradient(135deg,var(--a1),var(--a2));color:#fff;font-weight:600;text-decoration:none;padding:14px 28px;border-radius:999px;box-shadow:0 10px 40px -10px var(--a1);transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 50px -8px var(--a1)}
+.btn.ghost{background:var(--glass);border:1px solid var(--line);box-shadow:none}
+.btn.sm{padding:8px 18px;font-size:14px}
+.wrap{position:relative;overflow:hidden}
+.hero{max-width:1080px;margin:auto;padding:110px 16px 90px;text-align:center}
+.pill{display:inline-block;padding:6px 14px;border:1px solid var(--line);background:var(--glass);border-radius:999px;font-size:13px;color:var(--muted)}
+.pill b{color:var(--a2);font-weight:600}
+h1,h2{font-family:"Space Grotesk",sans-serif;letter-spacing:-.02em}
+.hero h1{font-size:clamp(38px,7vw,76px);line-height:1.04;margin:22px auto 22px;max-width:900px}
+.grad{background:linear-gradient(90deg,var(--a1),var(--a2) 50%,var(--a3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--muted);font-size:clamp(17px,2.2vw,20px);max-width:640px;margin:0 auto 34px}
+.cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.price-tag{margin-top:28px;color:var(--muted);font-size:15px}
+.price-tag b{color:var(--fg);font-size:18px}
+section{max-width:1080px;margin:auto;padding:90px 16px}
+.tag{font-size:13px;font-weight:600;letter-spacing:.14em;color:var(--a2)}
+h2{font-size:clamp(28px,4.6vw,46px);line-height:1.1;margin:.35em 0 .8em;max-width:760px}
+h3{margin:0 0 .35em;font-size:19px}
 p{margin:0 0 1em;color:var(--muted)}
-.grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px}
-.num{font-size:40px;font-weight:800;color:var(--accent);line-height:1}
-blockquote{margin:24px 0;padding:18px 22px;border-left:4px solid var(--accent);background:var(--card);border-radius:0 12px 12px 0}
-blockquote q{font-size:22px;font-weight:600;color:var(--fg)}
-blockquote cite{display:block;margin-top:8px;font-style:normal;color:var(--muted);font-size:14px}
-.step{font-size:13px;font-weight:800;color:var(--accent)}
-.src{font-size:13px}
-ul{margin:0;padding-left:20px;color:var(--muted)}
-li{margin-bottom:8px}
-.plan{border:2px solid var(--accent);max-width:520px}
-.plan .amt{font-size:52px;font-weight:800;line-height:1;color:var(--fg)}
-.plan .amt small{font-size:18px;color:var(--muted);font-weight:600}
-.plan ul{margin:20px 0 24px}
-.note{font-size:14px;margin-top:14px}
-footer{max-width:960px;margin:auto;padding:32px 16px;color:var(--muted);font-size:14px}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card{position:relative;background:var(--glass);border:1px solid var(--line);border-radius:20px;padding:26px;backdrop-filter:blur(8px);transition:border-color .25s,transform .25s}
+.card:hover{border-color:rgba(124,92,255,.5);transform:translateY(-3px)}
+.icon{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;margin-bottom:18px;background:linear-gradient(135deg,rgba(124,92,255,.25),rgba(34,211,238,.18));border:1px solid var(--line);font-weight:700;color:var(--a2)}
+.quote{margin-top:40px;padding:34px;border-radius:24px;background:linear-gradient(135deg,rgba(124,92,255,.14),rgba(34,211,238,.06));border:1px solid var(--line)}
+.quote q{font:700 clamp(24px,3.6vw,34px)/1.2 "Space Grotesk",sans-serif;color:var(--fg)}
+.quote cite{display:block;margin-top:12px;font-style:normal;color:var(--muted);font-size:15px}
+.num{font:700 52px/1 "Space Grotesk",sans-serif;margin-bottom:10px}
+.src{font-size:13px;opacity:.75}
+ul.check{list-style:none;padding:0;margin:22px 0 28px}
+ul.check li{padding-left:30px;position:relative;margin-bottom:12px;color:var(--fg)}
+ul.check li::before{content:"✓";position:absolute;left:0;top:0;width:20px;height:20px;border-radius:50%;background:rgba(34,211,238,.15);color:var(--a2);font-size:12px;display:grid;place-items:center;margin-top:3px}
+.pricing{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));align-items:start}
+.plan{padding:34px;border-radius:24px;position:relative;background:linear-gradient(var(--bg),var(--bg)) padding-box,linear-gradient(135deg,var(--a1),var(--a2),var(--a3)) border-box;border:1.5px solid transparent;box-shadow:0 30px 80px -30px rgba(124,92,255,.55)}
+.plan .badge{position:absolute;top:-13px;left:34px;background:linear-gradient(135deg,var(--a1),var(--a2));color:#fff;font-size:12px;font-weight:600;padding:4px 12px;border-radius:999px}
+.amt{font:700 64px/1 "Space Grotesk",sans-serif;margin:14px 0 4px}
+.amt small{font:500 18px Inter,sans-serif;color:var(--muted)}
+.plan .btn{width:100%;text-align:center}
+.note{font-size:14px;margin:14px 0 0;text-align:center}
+.final{text-align:center;padding:70px 24px;border-radius:28px;background:radial-gradient(ellipse at top,rgba(124,92,255,.35),transparent 70%),var(--glass);border:1px solid var(--line)}
+.final h2{margin:0 auto .5em}
+footer{max-width:1080px;margin:auto;padding:36px 16px;color:var(--muted);font-size:14px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+footer a{color:inherit}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.reveal.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
 <nav><div class="in">
-<a class="logo" href="#top">Insight<span>ify</span></a>
-<div class="links"><a href="#problem">Problem</a><a href="#solution">How it works</a><a href="#proof">Proof</a><a href="#pricing">Pricing</a></div>
-<a class="btn sm" href="#pricing">Book</a>
+<a class="logo" href="#top"><i></i>Insightify</a>
+<div class="links"><a href="#problem">Problem</a><a href="#how">How it works</a><a href="#proof">Results</a><a href="#pricing">Pricing</a></div>
+<a class="btn sm" href="#pricing">Book a pilot</a>
 </div></nav>
 
-<header class="hero" id="top"><div class="in">
-<div class="tag">INSIGHTIFY</div>
-<h1>Your research ends. Your client relationship shouldn’t.</h1>
-<p>Insightify runs post-project follow-up for research firms, under your name. We check in with each client, learn what they did with your findings, and bring you a brief on the next likely project.</p>
-<div class="price"><b>$10,000</b> per project</div>
+<div class="wrap">
+<div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+<header class="hero" id="top">
+<span class="pill"><b>New</b> · Client follow-up for research firms</span>
+<h1>Your research ends.<br><span class="grad">Your client relationship shouldn’t.</span></h1>
+<p>Insightify checks in with your clients after every project, under your name, and hands you a brief on the next likely engagement.</p>
+<div class="cta">
 <a class="btn" href="mailto:raghavjs@umich.edu?subject=Book%20the%20Insightify%20pilot&body=Hi%20Insightify%20team%2C%0A%0AWe%27d%20like%20to%20book%20the%20pilot%20for%20these%20projects%3A%0A%0A">Book the pilot</a>
-</div></header>
+<a class="btn ghost" href="#how">See how it works</a>
+</div>
+<div class="price-tag"><b>$10,000</b> per project · pilot on 2–3 projects</div>
+</header>
+</div>
 
-<section id="problem">
-<div class="tag">PROBLEM</div>
+<section id="problem" class="reveal">
+<div class="tag">THE PROBLEM</div>
 <h2>You deliver great research — then the client goes quiet</h2>
 <div class="grid">
-<div class="card"><h3>Repeat work is the profit</h3><p>Research firms grow on clients who come back for the next project.</p></div>
-<div class="card"><h3>Follow-up falls through the cracks</h3><p>Once a project is handed over, there is no consistent check-in. The next engagement is left to chance.</p></div>
+<div class="card"><div class="icon">$</div><h3>Repeat work is the profit</h3><p>Research firms grow on clients who come back for the next project.</p></div>
+<div class="card"><div class="icon">?</div><h3>Follow-up falls through the cracks</h3><p>Once a project is handed over, there is no consistent check-in. The next engagement is left to chance.</p></div>
 </div>
-<blockquote><q>We’re not great at that.</q><cite>Bill Lucken, Partner, The Martec Group — on following up with clients after delivery</cite></blockquote>
+<div class="quote"><q>We’re not great at that.</q><cite>Bill Lucken, Partner, The Martec Group — on following up with clients after delivery</cite></div>
 </section>
 
-<section id="solution">
+<section id="how" class="reveal">
 <div class="tag">HOW IT WORKS</div>
 <h2>We run your post-project follow-up, under your name</h2>
 <div class="grid">
-<div class="card"><div class="step">01</div><h3>Check in</h3><p>After each delivery, we reach out to the client on your behalf.</p></div>
-<div class="card"><div class="step">02</div><h3>Learn</h3><p>How were the findings used? What decisions did they drive? What comes next?</p></div>
-<div class="card"><div class="step">03</div><h3>Report back</h3><p>You get a short brief on each client and the next likely project.</p></div>
+<div class="card"><div class="icon">01</div><h3>Check in</h3><p>After each delivery, we reach out to the client on your behalf.</p></div>
+<div class="card"><div class="icon">02</div><h3>Learn</h3><p>How were the findings used? What decisions did they drive? What comes next?</p></div>
+<div class="card"><div class="icon">03</div><h3>Report back</h3><p>You get a short brief on each client and the next likely project.</p></div>
 </div>
-<p style="margin-top:24px">The result: your team stays focused on research, and no client is left waiting for you to reach out.</p>
 </section>
 
-<section id="why">
-<div class="tag">WHY INSIGHTIFY?</div>
-<h2>We already know where the relationship drops off, and we can start now</h2>
+<section id="why" class="reveal">
+<div class="tag">WHY INSIGHTIFY</div>
+<h2>Follow-up is our only job</h2>
 <div class="grid">
 <div class="card"><h3>We heard it from the source</h3><p>We interviewed research firm partners directly and know where the relationship drops off after delivery.</p></div>
 <div class="card"><h3>We’ve done outreach before</h3><p>Our team has hands-on experience reaching out to contacts and turning conversations into next steps.</p></div>
-<div class="card"><h3>Follow-up is our only job</h3><p>Your researchers are busy delivering the next project. We give follow-up the consistent attention it never gets.</p></div>
+<div class="card"><h3>Your team stays on research</h3><p>Your researchers deliver the next project. We give follow-up the consistent attention it never gets.</p></div>
 </div>
 </section>
 
-<section id="proof">
-<div class="tag">PROOF</div>
+<section id="proof" class="reveal">
+<div class="tag">THE NUMBERS</div>
 <h2>Keeping a client pays more than finding a new one</h2>
 <div class="grid">
-<div class="card"><div class="num">25–95%</div><p>more profit from a 5% increase in customer retention</p><p class="src">Source: Bain &amp; Company (Reichheld)</p></div>
-<div class="card"><div class="num">5–25×</div><p>more expensive to win a new customer than to keep an existing one</p><p class="src">Source: Harvard Business Review, 2014</p></div>
+<div class="card"><div class="num grad">25–95%</div><p>more profit from a 5% increase in customer retention</p><p class="src">Bain &amp; Company (Reichheld)</p></div>
+<div class="card"><div class="num grad">5–25×</div><p>more expensive to win a new customer than to keep an existing one</p><p class="src">Harvard Business Review, 2014</p></div>
 </div>
 </section>
 
-<section id="pricing">
+<section id="pricing" class="reveal">
 <div class="tag">PRICING</div>
-<h2>Start with a pilot on 2–3 recent projects</h2>
-<div class="card plan">
+<h2>One simple price per project</h2>
+<div class="pricing">
+<div class="plan">
+<span class="badge">Pilot: 2–3 projects</span>
 <h3>Post-Project Follow-Up</h3>
-<div class="amt">$10,000 <small>/ project</small></div>
-<ul>
-<li>Post-delivery check-ins with the client, under your name</li>
-<li>How the findings were used and what they may need next</li>
-<li>A summary report for each client, with the next likely project</li>
+<div class="amt">$10,000<small> / project</small></div>
+<ul class="check">
+<li>Post-delivery check-ins with your client, under your name</li>
+<li>How the findings were used and what they need next</li>
+<li>A summary report per client, with the next likely project</li>
 </ul>
 <a class="btn" href="mailto:raghavjs@umich.edu?subject=Book%20the%20Insightify%20pilot&body=Hi%20Insightify%20team%2C%0A%0AWe%27d%20like%20to%20book%20the%20pilot%20for%20these%20projects%3A%0A%0A">Book the pilot</a>
-<p class="note">Pilot of 2–3 projects: $20,000–$30,000.</p>
+<p class="note">Pilot of 2–3 projects: $20,000–$30,000</p>
 </div>
-<div class="grid" style="margin-top:28px">
-<div class="card"><h3>What we need from you</h3><ul>
+<div class="card"><h3>What we need from you</h3><ul class="check">
 <li>Your view on what a check-in and summary report look like</li>
 <li>Introductions or contact details for those clients</li>
 <li>The go-ahead to reach out</li></ul></div>
 </div>
 </section>
 
-<footer>© 2026 Insightify · <a href="mailto:raghavjs@umich.edu" style="color:inherit">raghavjs@umich.edu</a></footer>
+<section class="reveal">
+<div class="final">
+<h2>Turn every delivered project into the <span class="grad">next one</span></h2>
+<p>Start with 2–3 recent projects. $10,000 each.</p>
+<a class="btn" href="mailto:raghavjs@umich.edu?subject=Book%20the%20Insightify%20pilot&body=Hi%20Insightify%20team%2C%0A%0AWe%27d%20like%20to%20book%20the%20pilot%20for%20these%20projects%3A%0A%0A">Book the pilot</a>
+</div>
+</section>
+
+<footer><span>© 2026 Insightify</span><a href="mailto:raghavjs@umich.edu">raghavjs@umich.edu</a></footer>
+
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
 </body>
 </html>
